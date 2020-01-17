@@ -1,7 +1,14 @@
 $(document).ready(function(){
-  var answered = false;
-
   var ui = new UI();
+  var result = [
+    ['Ruby', 'img/ruby.jpeg'],
+    ['C#', 'img/c-sharp.png'],
+    ['JavaScript', 'img/js.png'],
+    ['Go', 'img/go.png'],
+    ['Python', 'img/python.jpeg'],
+    ['Rust', 'img/rust.png'],
+    ['Swift', 'img/swift.png']
+  ];
 
   ui.submitBtn.click(function(event){
     event.preventDefault();
@@ -10,11 +17,12 @@ $(document).ready(function(){
 
   function runSurvey() {
     if(ui.q1 && ui.q2 && ui.q3 && ui.q4 && ui.q5 && ui.checkbox) {
-      ui.outPut.text('q1 = ' + ui.q1 + ' || q2 = ' + ui.q2 + ' || q3 = ' + ui.q3 + ' || q4 ' + ui.q4 + ' || q5 = ' + ui.q5 + ' checkbox = ' + ui.checkbox);
-      ui.img.attr("src", "/img/c-sharp.png");
+      ui.modalOutPut.text('Your should learn ' + result[0][0]);
+      ui.titleOutPut.text(result[0][0])
+      ui.img.attr("src", result[0][1]);
     } else {
-      alert('Please answer all questions');
-      
+      ui.modalOutPu.text('Error!');
+      ui.outPut.text('Please answer all questiosn');
     }
   }
 
@@ -23,7 +31,9 @@ $(document).ready(function(){
 
 function UI() {
   this.submitBtn = $('#submit');
-  this.outPut = $('#out-put');
+  this.modalTitle = $('h5');
+  this.modalOutPut = $('#modal-out-put');
+  this.titleOutPut = $('#title-out-put');
   this.img = $('#out-put-img');
   this.name = $('#name');
   this.q1;
