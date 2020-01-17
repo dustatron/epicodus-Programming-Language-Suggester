@@ -2,11 +2,9 @@ $(document).ready(function(){
 
   var ui = new UI();
 
-
-
   $('#submit').click(function(event){
     event.preventDefault();
-    console.log('q1 = ' + ui.q1 + ' || q2 = ' + ui.q2 + ' || q3 = ' + ui.q3 + ' || q4 ' + ui.q4 + ' || q5 = ' + ui.q5);
+    console.log('q1 = ' + ui.q1 + ' || q2 = ' + ui.q2 + ' || q3 = ' + ui.q3 + ' || q4 ' + ui.q4 + ' || q5 = ' + ui.q5 + ' checkbox = ' + ui.checkbox);
   });
 
 });
@@ -19,6 +17,7 @@ function UI() {
   this.q3;
   this.q4;
   this.q5;
+  this.checkbox;
 
   var that = this;
 
@@ -38,13 +37,26 @@ function UI() {
     if(q3Value){
       that.q3 = q3Value;
     }
+
     var q4Value = $("input[name='q4']:checked").val();
     if(q4Value){
       that.q4 = q4Value;
     }
+
     var q5Value = $("input[name='q5']:checked").val();
     if(q5Value){
       that.q5 = q5Value;
     }
-  });
+
+  }); //End radio listener
+
+  $('input[type="checkbox"]').click(function(){
+    if($(this).is(":checked")){
+      that.checkbox = true;
+    } else if($(this).is(":not(:checked)")) {
+      that.checkbox = false;
+    }
+  }); 
+
+
 }
