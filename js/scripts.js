@@ -1,5 +1,7 @@
 $(document).ready(function(){
+  //load ui elements
   var ui = new UI();
+  
   var result = [
     ['Ruby', 'img/ruby.jpeg'],
     ['C#', 'img/c-sharp.png'],
@@ -7,7 +9,8 @@ $(document).ready(function(){
     ['Go', 'img/go.png'],
     ['Python', 'img/python.jpeg'],
     ['Rust', 'img/rust.png'],
-    ['Swift', 'img/swift.png']
+    ['Swift', 'img/swift.png'],
+    ['What Language Should You Learn?', 'img/lang-banner-01.png']
   ];
 
   ui.submitBtn.click(function(event){
@@ -16,8 +19,16 @@ $(document).ready(function(){
   });
 
   function runSurvey() {
-    if(ui.q1) {
-      writeOutResult(6);
+    if(ui.q1 && ui.q2 && ui.q3 && ui.q4 && ui.q5) {
+      if(ui.resetState){
+        writeOutResult(6);
+        ui.subTitle.fadeToggle()
+        ui.resetBtn();
+      } else {
+        ui.resetBtn();
+        ui.subTitle.fadeToggle();
+        writeOutResult(7);
+      }
     } else {
       ui.modalTitle.text('Error!');
       ui.modalOutPut.text('Please answer all questiosn');
@@ -33,20 +44,23 @@ $(document).ready(function(){
 }); //document ready end
 
 
-
+//------ THE DOM FUNCTIONS ----- 
 function UI() {
-  //DOM elements
+  //Private DOM elements
+  var arrow = $('#arrow');
+  var question = $('form');
+  var inputBtns = $("input[type='radio']");
+
+  //Public DOM elements
   this.submitBtn = $('#submit');
   this.modalTitle = $('h5');
   this.modalOutPut = $('#modal-out-put');
   this.titleOutPut = $('#title-out-put');
   this.img = $('#out-put-img');
-  this.name = $('#name');
+  this.subTitle = $('h2');
+  this.resetState = true;
 
-
-  var question = $('form');
-
-  //answers
+  //Public Answer Variables
   this.q1;
   this.q2;
   this.q3;
@@ -54,10 +68,23 @@ function UI() {
   this.q5;
   this.checkbox;
 
+  //Public Function
+  this.resetBtn = function(){
+    console.log('reset');
+    if(that.resetState){
+      that.submitBtn.text('Reset').attr('type', 'reset').removeClass('btn-primary').addClass('btn-danger');
+      that.resetState = false;
+    } else {
+      that.submitBtn.text('Submit').attr('type', 'submit').removeClass('btn-danger').addClass('btn-primary');
+      that.resetState = true;
+    }
+  };
 
+
+  // Share 'this' to inner function
   var that = this;
-
-  $("input[type='radio']").click(function(){
+  
+  inputButtons.click(function(){
 
     var q1Value = $("input[name='q1']:checked").val();
     question.next().show();
@@ -83,11 +110,13 @@ function UI() {
       that.q4 = q4Value;
       question.find('.question').eq(3).slideDown();
     }
-
+    
     var q5Value = $("input[name='q5']:checked").val();
     if(q5Value){
       that.q5 = q5Value;
       question.find('.question').eq(4).slideDown();
+      that.submitBtn.removeClass('btn-light').addClass('btn-primary');
+      arrow.hide();
     }
 
   }); //End radio listener
