@@ -20,7 +20,7 @@ $(document).ready(function(){
 
   function runSurvey() {
     if(ui.q1 && ui.q2 && ui.q3 && ui.q4 && ui.q5) {
-      if(ui.resetState){
+      if(ui.reDoState){
         writeOutResult(6);
         ui.subTitle.fadeToggle()
         ui.resetBtn();
@@ -58,7 +58,7 @@ function UI() {
   this.titleOutPut = $('#title-out-put');
   this.img = $('#out-put-img');
   this.subTitle = $('h2');
-  this.resetState = true;
+  this.reDoState = true;
 
   //Public Answer Variables
   this.q1;
@@ -70,13 +70,13 @@ function UI() {
 
   //Public Function
   this.resetBtn = function(){
-    console.log('reset');
-    if(that.resetState){
+    if(that.reDoState){
       that.submitBtn.text('Reset').attr('type', 'reset').removeClass('btn-primary').addClass('btn-danger');
-      that.resetState = false;
+      that.reDoState = false;
     } else {
       that.submitBtn.text('Submit').attr('type', 'submit').removeClass('btn-danger').addClass('btn-primary');
-      that.resetState = true;
+      that.reDoState = true;
+      inputBtns.prop('checked', false);
     }
   };
 
@@ -84,7 +84,7 @@ function UI() {
   // Share 'this' to inner function
   var that = this;
   
-  inputButtons.click(function(){
+  inputBtns.click(function(){
 
     var q1Value = $("input[name='q1']:checked").val();
     question.next().show();
