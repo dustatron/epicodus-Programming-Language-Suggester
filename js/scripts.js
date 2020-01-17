@@ -1,8 +1,7 @@
-
 $(document).ready(function () {
-  //load ui elements
+  // load ui elements
   var ui = new UI();
-  
+
   //---------  BUSINESS LOGIC ----------
   var result = [
     ['Ruby', 'img/ruby.jpeg'],
@@ -15,7 +14,7 @@ $(document).ready(function () {
     ['what Language is right for you.', 'img/lang-banner-01.png']
   ];
 
-  //submit button listener
+  // submit button listener
   ui.submitBtn.click(function (event) {
     event.preventDefault();
     runSurvey();
@@ -23,7 +22,7 @@ $(document).ready(function () {
 
   function runSurvey() {
     if (ui.q1 && ui.q2 && ui.q3 && ui.q4) {
-      //toggle between reset and submit
+      // toggle between reset and submit
       if (ui.reDoState) {
         writeOutResult(getResult());
         ui.subTitle.fadeToggle()
@@ -32,9 +31,9 @@ $(document).ready(function () {
         ui.resetBtn();
         ui.subTitle.fadeToggle();
         writeOutResult(7);
-      } //<--- toggle end
+      } // <--- toggle end
 
-      //picking language logic
+      // picking language logic
 
     } else {
       // catch if answers have not been given
@@ -51,10 +50,10 @@ $(document).ready(function () {
     ui.img.attr("src", result[answer][1]);
   }
 
-  //evaluates what Language a person  should learn
+  // evaluate what Language a person should learn
   function getResult(reset) {
     var answer;
-    //q1
+    // q1
     var firstQ = function () {
       if (ui.q1 === 'games') {
         answer = 1; //C#
@@ -71,7 +70,7 @@ $(document).ready(function () {
       }
     } // q1 end
 
-    //q2 websites
+    // q2 websites
     var webDevQ2 = function () {
       if (ui.q2 === "projects") {
         porjectsQ3();
@@ -82,9 +81,9 @@ $(document).ready(function () {
       } else {
         console.log('error question 2 webdev : all conditions failed');
       }
-    }; //q2 end
+    }; // q2 end
 
-    //q3 freelance projects
+    // q3 freelance projects
     var porjectsQ3 = function () {
       if (ui.q3 === "large") {
         answer = 1; //C# 
@@ -97,7 +96,7 @@ $(document).ready(function () {
       }
     }; //q3 projects end
 
-    //q3 employed
+    // q3 employed
     var employedQ3 = function () {
       if (ui.q3 === "large") {
         answer = 1; //C# 
@@ -108,9 +107,9 @@ $(document).ready(function () {
       } else {
         console.log('error question 3 employed : all conditions failed')
       }
-    }//q3 employed end
+    }// q3 employed end
 
-    //q4 bleeding edge
+    // q4 bleeding edge
     var bleedingEdgeQ4 = function () {
       if (ui.q4 === "early") {
         answer = 1; //Go
@@ -127,17 +126,16 @@ $(document).ready(function () {
     return answer;
   }// getResults end
 
-
-  // End business logic
+  // end business logic
 }); // < ---- document ready end
 //------ THE DOM FUNCTIONS ----- 
 function UI() {
-  //Private DOM elements
+  // private DOM elements
   var arrow = $('#arrow');
   var question = $('form');
   var inputBtns = $("input[type='radio']");
 
-  //Public DOM elements
+  // public DOM elements
   this.submitBtn = $('#submit');
   this.modalTitle = $('h5');
   this.modalOutPut = $('#modal-out-put');
@@ -146,7 +144,7 @@ function UI() {
   this.subTitle = $('h2');
   this.reDoState = true;
 
-  //Public Answer Variables
+  // public Answer Variables
   this.q1;
   this.q2;
   this.q3;
@@ -154,7 +152,7 @@ function UI() {
   this.q5;
   this.checkbox;
 
-  //Public Function
+  // public Function
   this.resetBtn = function () {
     if (that.reDoState) {
       that.submitBtn.text('Reset').attr('type', 'reset').removeClass('btn-primary').addClass('btn-danger');
@@ -167,11 +165,10 @@ function UI() {
     }
   };
 
-
-  // Share 'this' to inner function
+  // share 'this' to inner function
   var that = this;
 
-  //creating radio button listeners
+  // creating radio button listeners
   inputBtns.click(function () {
     //question 1
     var q1Value = $("input[name='q1']:checked").val();
@@ -180,25 +177,25 @@ function UI() {
       that.q1 = q1Value;
       question.find('.question').eq(0).slideDown();
     }
-    //question 2
+    // question 2
     var q2Value = $("input[name='q2']:checked").val();
     if (q2Value) {
       that.q2 = q2Value;
       question.find('.question').eq(1).slideDown();
     }
-    //question 3
+    // question 3
     var q3Value = $("input[name='q3']:checked").val();
     if (q3Value) {
       that.q3 = q3Value;
       question.find('.question').eq(2).slideDown();
     }
-    //question 4
+    // question 4
     var q4Value = $("input[name='q4']:checked").val();
     if (q4Value) {
       that.q4 = q4Value;
       question.find('.question').eq(3).slideDown();
     }
-    //question 5
+    // question 5
     var q5Value = $("input[name='q5']:checked").val();
     if (q5Value) {
       that.q5 = q5Value;
@@ -206,9 +203,9 @@ function UI() {
       that.submitBtn.removeClass('btn-light').addClass('btn-primary');
       arrow.hide();
     }
-  }); //End radio listener
+  }); // end radio listener
 
-  //checkbox listener. only using here. no need to make public variable.
+  // checkbox listener. only using here. no need to make public variable.
   $('input[type="checkbox"]').click(function () {
     if ($(this).is(":checked")) {
       that.checkbox = true;
