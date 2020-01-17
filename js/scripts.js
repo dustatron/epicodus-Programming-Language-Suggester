@@ -1,16 +1,30 @@
 $(document).ready(function(){
+  var answered = false;
 
   var ui = new UI();
 
-  $('#submit').click(function(event){
+  ui.submitBtn.click(function(event){
     event.preventDefault();
-    console.log('q1 = ' + ui.q1 + ' || q2 = ' + ui.q2 + ' || q3 = ' + ui.q3 + ' || q4 ' + ui.q4 + ' || q5 = ' + ui.q5 + ' checkbox = ' + ui.checkbox);
+    runSurvey();
   });
+
+  function runSurvey() {
+    if(ui.q1 && ui.q2 && ui.q3 && ui.q4 && ui.q5 && ui.checkbox) {
+      ui.outPut.text('q1 = ' + ui.q1 + ' || q2 = ' + ui.q2 + ' || q3 = ' + ui.q3 + ' || q4 ' + ui.q4 + ' || q5 = ' + ui.q5 + ' checkbox = ' + ui.checkbox);
+      ui.img.attr("src", "/img/c-sharp.png");
+    } else {
+      alert('Please answer all questions');
+      
+    }
+  }
 
 });
 
 
 function UI() {
+  this.submitBtn = $('#submit');
+  this.outPut = $('#out-put');
+  this.img = $('#out-put-img');
   this.name = $('#name');
   this.q1;
   this.q2;
@@ -18,6 +32,7 @@ function UI() {
   this.q4;
   this.q5;
   this.checkbox;
+
 
   var that = this;
 
