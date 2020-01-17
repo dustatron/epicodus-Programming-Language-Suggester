@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <!-- css style sheets  -->
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- javascript  -->
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/scripts.js"></script>
+
+  <title>Language Picker</title>
+</head>
+
+<body>
+  <!-- Nav Bar  -->
+  <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
+    <a class="navbar-brand" href="#">Language Picker</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- page contents  -->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 offset-md-2">
+
+        <div class="jumbotron">
+          <h1 class="text-center">Pick a language</h1>
+          <img src="img/lang-banner-01.png" class="img-fluid" alt="Responsive image">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-8 offset-md-2">
+
+        <!-- Survey  -->
+        <form>
+          <div class="form-group row">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">Your Name</label>
+            <div class="col-sm-10">
+              <input type="email" class="form-control" id="inputEmail3">
+            </div>
+          </div>
+
+          <!-- Question 1  -->
+          <fieldset class="form-group">
+            <div class="row">
+              <legend class="col-form-label col-sm-2 pt-0">Question 1</legend>
+              <div class="col-sm-10">
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="q1" id="q1-1" value="option1">
+                  <label class="form-check-label" for="q1-1">
+                    First radio
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="q1" id="q1-2" value="option2">
+                  <label class="form-check-label" for="q1-2">
+                    Second radio
+                  </label>
+                </div>
+                <div class="form-check disabled">
+                  <input class="form-check-input" type="radio" name="q1" id="q1-3" value="option3">
+                  <label class="form-check-label" for="q1-3">
+                    Third disabled radio
+                  </label>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+          <!-- Question 2  -->
+          <fieldset class="form-group">
+            <div class="row">
+              <legend class="col-form-label col-sm-2 pt-0">Question 2</legend>
+              <div class="col-sm-10">
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="q2" id="q2-1" value="option1">
+                  <label class="form-check-label" for="q2-1">
+                    First radio
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="q2" id="q2-2" value="option2">
+                  <label class="form-check-label" for="q2-2">
+                    Second radio
+                  </label>
+                </div>
+                <div class="form-check disabled">
+                  <input class="form-check-input" type="radio" name="q2" id="q2-3" value="option3">
+                  <label class="form-check-label" for="q2-3">
+                    Third disabled radio
+                  </label>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+          <!-- Question 3  -->
+          <fieldset class="form-group">
+            <div class="row">
+              <legend class="col-form-label col-sm-2 pt-0">Question 3</legend>
+              <div class="col-sm-10">
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="q3" id="q3-1" value="option1">
+                  <label class="form-check-label" for="q3-1">
+                    First radio
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="q3" id="q3-2" value="option2">
+                  <label class="form-check-label" for="q3-2">
+                    Second radio
+                  </label>
+                </div>
+                <div class="form-check disabled">
+                  <input class="form-check-input" type="radio" name="q3" id="q3-3" value="option3">
+                  <label class="form-check-label" for="q3-3">
+                    Third disabled radio
+                  </label>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+          <!-- Question 4  -->
+          <fieldset class="form-group">
+            <div class="row">
+              <legend class="col-form-label col-sm-2 pt-0">Question 4</legend>
+              <div class="col-sm-10">
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="q4" id="q4-1" value="option1">
+                  <label class="form-check-label" for="q4-1">
+                    First radio
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="q4" id="q4-2" value="option2">
+                  <label class="form-check-label" for="q4-2">
+                    Second radio
+                  </label>
+                </div>
+                <div class="form-check disabled">
+                  <input class="form-check-input" type="radio" name="q4" id="q4-3" value="option3">
+                  <label class="form-check-label" for="q4-3">
+                    Third disabled radio
+                  </label>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+          <!-- Question 5  -->
+          <fieldset class="form-group">
+            <div class="row">
+              <legend class="col-form-label col-sm-2 pt-0">Question 5</legend>
+              <div class="col-sm-10">
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="q5" id="q5-1" value="option1">
+                  <label class="form-check-label" for="q5-1">
+                    First radio
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="q5" id="q5-2" value="option2">
+                  <label class="form-check-label" for="q5-2">
+                    Second radio
+                  </label>
+                </div>
+                <div class="form-check disabled">
+                  <input class="form-check-input" type="radio" name="q5" id="q5-3" value="option3">
+                  <label class="form-check-label" for="q5-3">
+                    Third disabled radio
+                  </label>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+          
+          <div class="form-group row">
+            <div class="col-sm-2">Checkbox</div>
+            <div class="col-sm-10">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="gridCheck1">
+                <label class="form-check-label" for="gridCheck1">
+                  Example checkbox
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-sm-10">
+              <button type="submit" class="btn btn-primary btn-lg btn-block">Submit</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+  </div> <!-- container end -->
+</body>
+
+</html>
