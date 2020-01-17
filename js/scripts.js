@@ -10,9 +10,10 @@ $(document).ready(function(){
     ['Python', 'img/python.jpeg'],
     ['Rust', 'img/rust.png'],
     ['Swift', 'img/swift.png'],
-    ['What Language Should You Learn?', 'img/lang-banner-01.png']
+    ['what Language is right for you.', 'img/lang-banner-01.png']
   ];
 
+  //submit button listener
   ui.submitBtn.click(function(event){
     event.preventDefault();
     runSurvey();
@@ -20,6 +21,7 @@ $(document).ready(function(){
 
   function runSurvey() {
     if(ui.q1 && ui.q2 && ui.q3 && ui.q4 && ui.q5) {
+      //toggle between reset and submit
       if(ui.reDoState){
         writeOutResult(6);
         ui.subTitle.fadeToggle()
@@ -28,20 +30,25 @@ $(document).ready(function(){
         ui.resetBtn();
         ui.subTitle.fadeToggle();
         writeOutResult(7);
-      }
+      } //<--- toggle end
+
+      //picking language logic
+
     } else {
+      // catch if answers have not been given.
       ui.modalTitle.text('Error!');
       ui.modalOutPut.text('Please answer all questiosn');
     }
   }
 
+  // sending UI data to update DOM
   function writeOutResult(answer) {
     ui.modalTitle.text('The Results Are In!');
-    ui.modalOutPut.text('Your should learn ' + result[answer][0]);
+    ui.modalOutPut.text('You should learn ' + result[answer][0]);
     ui.titleOutPut.text('Learn ' + result[answer][0])
     ui.img.attr("src", result[answer][1]);
   }
-}); //document ready end
+}); // < ---- document ready end
 
 
 //------ THE DOM FUNCTIONS ----- 
@@ -84,33 +91,34 @@ function UI() {
   // Share 'this' to inner function
   var that = this;
   
+  //creating radio button listeners
   inputBtns.click(function(){
-
+    //question 1
     var q1Value = $("input[name='q1']:checked").val();
     question.next().show();
     if(q1Value){
       that.q1 = q1Value;
       question.find('.question').eq(0).slideDown();
     }
-
+    //question 2
     var q2Value = $("input[name='q2']:checked").val();
     if(q2Value){
       that.q2 = q2Value;
       question.find('.question').eq(1).slideDown();
     }
-
+    //question 3
     var q3Value = $("input[name='q3']:checked").val();
     if(q3Value){
       that.q3 = q3Value;
       question.find('.question').eq(2).slideDown();
     }
-
+    //question 4
     var q4Value = $("input[name='q4']:checked").val();
     if(q4Value){
       that.q4 = q4Value;
       question.find('.question').eq(3).slideDown();
     }
-    
+    //question 5
     var q5Value = $("input[name='q5']:checked").val();
     if(q5Value){
       that.q5 = q5Value;
@@ -118,9 +126,9 @@ function UI() {
       that.submitBtn.removeClass('btn-light').addClass('btn-primary');
       arrow.hide();
     }
-
   }); //End radio listener
 
+  //checkbox listener. only using here. no need to make public variable.
   $('input[type="checkbox"]').click(function(){
     if($(this).is(":checked")){
       that.checkbox = true;
@@ -128,5 +136,4 @@ function UI() {
       that.checkbox = false;
     }
   }); 
-
-}
+} // < ----- UI end
