@@ -78,11 +78,12 @@ function UI() {
   //Public Function
   this.resetBtn = function(){
     if(that.reDoState){
-      that.submitBtn.text('Reset').attr('type', 'reset').attr('data-target', '#modal').removeClass('btn-primary').addClass('btn-danger');
+      that.submitBtn.text('Reset').attr('type', 'reset').removeClass('btn-primary').addClass('btn-danger');
       that.reDoState = false;
     } else {
-      that.submitBtn.text('Submit').attr('type', 'submit').attr('data-target', 'none').removeClass('btn-danger').addClass('btn-primary');
+      that.submitBtn.text('Submit').attr('type', 'submit').removeClass('btn-danger').addClass('btn-primary');
       that.reDoState = true;
+      that.q1 = false;
       inputBtns.prop('checked', false);
     }
   };
