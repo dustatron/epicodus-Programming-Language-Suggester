@@ -31,6 +31,8 @@ $(document).ready(function () {
         ui.resetBtn();
         ui.subTitle.fadeToggle();
         writeOutResult(7);
+        ui.questionClass.hide();
+
       } // <--- toggle end
 
       // picking language logic
@@ -125,9 +127,11 @@ $(document).ready(function () {
     firstQ();
     return answer;
   }// getResults end
-
   // end business logic
 }); // < ---- document ready end
+
+
+
 //------ THE DOM FUNCTIONS ----- 
 function UI() {
   // private DOM elements
@@ -142,6 +146,7 @@ function UI() {
   this.titleOutPut = $('#title-out-put');
   this.img = $('#out-put-img');
   this.subTitle = $('h2');
+  this.questionClass = $('.question');
   this.reDoState = true;
 
   // public Answer Variables
@@ -161,6 +166,7 @@ function UI() {
       that.submitBtn.text('Submit').attr('type', 'submit').removeClass('btn-danger').addClass('btn-primary');
       that.reDoState = true;
       that.q1 = false;
+      arrow.show();
       inputBtns.prop('checked', false);
     }
   };
