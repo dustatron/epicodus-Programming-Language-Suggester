@@ -165,7 +165,7 @@ function UI() {
       that.submitBtn.text('Reset').attr('type', 'reset').removeClass('btn-primary').addClass('btn-danger');
       that.reDoState = false;
     } else {
-      that.submitBtn.text('Submit').attr('type', 'submit').removeClass('btn-danger').addClass('btn-primary');
+      that.submitBtn.text('Submit').attr('type', 'submit').removeClass('btn-danger').addClass('btn-light');
       that.reDoState = true;
       that.q1 = false;
       arrow.show();
