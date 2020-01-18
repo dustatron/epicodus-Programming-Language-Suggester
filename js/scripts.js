@@ -27,11 +27,13 @@ $(document).ready(function () {
         writeOutResult(getResult());
         ui.subTitle.fadeToggle()
         ui.resetBtn();
+        ui.submitBtn.attr('data-target', '#modal');
       } else {
         ui.resetBtn();
         ui.subTitle.fadeToggle();
         writeOutResult(7);
         ui.questionClass.hide();
+        ui.submitBtn.attr('data-target', 'none');
 
       } // <--- toggle end
 
