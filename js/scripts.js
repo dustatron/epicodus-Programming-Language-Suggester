@@ -11,7 +11,7 @@ $(document).ready(function () {
     ['Python', './img/python.jpeg'],
     ['Rust', './img/rust.png'],
     ['Swift', './img/swift.png'],
-    ['what Language is right for you.', './img/lang-banner-01.png']
+    ['have reset the qestions.', './img/lang-banner-01.png']
   ];
 
   // submit button listener
