@@ -4,14 +4,14 @@ $(document).ready(function () {
 
   //---------  BUSINESS LOGIC ----------
   var result = [
-    ['Ruby', 'img/ruby.jpeg'],
-    ['C#', 'img/c-sharp.png'],
-    ['JavaScript', 'img/js.png'],
-    ['Go', 'img/go.png'],
-    ['Python', 'img/python.jpeg'],
-    ['Rust', 'img/rust.png'],
-    ['Swift', 'img/swift.png'],
-    ['what Language is right for you.', 'img/lang-banner-01.png']
+    ['Ruby', './img/ruby.jpeg'],
+    ['C#', './img/c-sharp.png'],
+    ['JavaScript', './img/js.png'],
+    ['Go', './img/go.png'],
+    ['Python', './img/python.jpeg'],
+    ['Rust', './img/rust.png'],
+    ['Swift', './img/swift.png'],
+    ['what Language is right for you.', './img/lang-banner-01.png']
   ];
 
   // submit button listener
